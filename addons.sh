@@ -6,7 +6,7 @@ clear
 # Zenity
 GUI=$(zenity --list --checklist \
 	--height 500 \
-	--width 900 \
+	--width 1000 \
 	--title="elementary-script" \
 	--text "Pick one or multiple Actions to execute." \
 	--column=Picks \
@@ -14,17 +14,17 @@ GUI=$(zenity --list --checklist \
 	--column=Type \
 	--column=Description \
 	TRUE "Update System" "APT" "Updates the package lists, the system packages and Applications."  \
-    FALSE "Upgrade LTS Kernel" "DEB" "Upgrade to the last Long Term Suport LTS Kernel." \
+    	FALSE "Upgrade LTS Kernel" "DEB" "Upgrade to the last Long Term Suport LTS Kernel." \
 	FALSE "Enable PPAs" "APT" "Another extra layer of security and another level of annoyance. You cannot add PPA by default in Loki." \
 	FALSE "Install Y-PPA-Manager" "PPA" "Tool that lets you easily add, remove or purge PPAs as well as search for packages in Launchpad PPAs." \
 	FALSE "Install Elementary Tweaks" "PPA" "Installing themes in elementary OS is a much easier task thanks to elementary Tweaks tool." \
-    FALSE "Install Elementary Full Icon Theme" "GIT" "Installs Elementary Full Icon Theme. A mega pack of icons for elementary OS." \
-    FALSE "Add Oibaf Repository" "PPA" "This repository contain updated and optimized open graphics drivers." \
+    	FALSE "Install Elementary Full Icon Theme" "GIT" "Installs Elementary Full Icon Theme. A mega pack of icons for elementary OS." \
+    	FALSE "Add Oibaf Repository" "PPA" "This repository contain updated and optimized open graphics drivers." \
 	FALSE "Install Gufw Firewall" "APT" "Gufw is an easy and intuitive way to manage your linux firewall." \
-	TRUE "Install CatFish" "APT" "handy file searching tool for Linux and UNIX." \
+	FALSE "Install CatFish" "APT" "handy file searching tool for Linux and UNIX." \
 	FALSE "Install Support for Archive Formats" "APT" "Installs support for archive formats." \
 	FALSE "Install GDebi" "APT" "Installs GDebi. A simple tool to install deb files." \
-    FALSE "Install Gnome Software Center" "APT" "Installs Gnome Software Center with more options than Elementarys' AppCenter has." \
+    	FALSE "Install Gnome Software Center" "APT" "Installs Gnome Software Center with more options than Elementarys' AppCenter has." \
 	FALSE "Install Google Chrome" "DEB" "Installs Google Chrome 64bits. A browser that combines a minimal design with sophisticated technology to make the web faster, safer, and easier." \
 	FALSE "Install Chromium" "APT" "Installs Chromium. An open-source browser project that aims to build a safer, faster, and more stable way for all Internet users to experience the web." \
 	FALSE "Install Firefox" "APT" "Installs Firefox. A free and open-source web browser." \
@@ -45,7 +45,7 @@ GUI=$(zenity --list --checklist \
 	FALSE "Install Redshift" "APT" "Use night shift to save your eyes." \
 	FALSE "Install Disk Utility" "APT" "Gnome Disk Utility is a tool to manage disk drives and media." \
 	FALSE "Install Ubuntu Restricted Extras" "APT" "Installs commonly used applications with restricted copyright (mp3, avi, mpeg, TrueType, Java, Flash, Codecs)." \
-	TRUE "Install Support for Encrypted DVD's" "APT" "Installs support for playing encrypted DVD's." \
+	FALSE "Install Support for Encrypted DVD's" "APT" "Installs support for playing encrypted DVD's." \
 	FALSE "Install Extra Multimedia Codecs" "APT" "Installs extra multimedia codecs." \
 	TRUE "Fix Broken Packages" "APT" "Fixes the broken packages." \
 	TRUE "Clean-Up Junk" "APT" "Removes unnecessary packages and the local repository of retrieved package files." \
