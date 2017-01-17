@@ -29,6 +29,7 @@ GUI=$(zenity --list --checklist \
 	FALSE "Install Chromium" "APT" "Installs Chromium. An open-source browser project that aims to build a safer, faster, and more stable way for all Internet users to experience the web." \
 	FALSE "Install Firefox" "APT" "Installs Firefox. A free and open-source web browser." \
 	FALSE "Install Skype" "DEB" "Video chat, make international calls, instant message and more with Skype." \
+	FALSE "Install Telegram" "PPA" "Real time chat, better than whatsapp ;-)" \
 	FALSE "Install Dropbox" "GIT" "Installs Dropbox with wingpanel support. Dropbox is a free service that lets you bring your photos, docs, and videos anywhere and share them easily." \
 	FALSE "Install Nextcloud Client" "PPA" "Desktop client for Nextcloud. A safe home for all your data Access, share and protect your files, calendars, contacts, communication & more at home and in your enterprise." \
 	FALSE "Install Liferea" "APT" "Installs Liferea. a web feed reader/news aggregator that brings together all of the content from your favorite subscriptions into a simple interface that makes it easy to organize and browse feeds. Its GUI is similar to a desktop mail/newsclient, with an embedded graphical browser." \
@@ -226,6 +227,17 @@ then
 	fi
 	sudo dpkg -i /tmp/skype.deb
 	sudo apt -f install
+fi
+
+# Install Telegram
+if [[ $GUI == *"Install Telegram Desktop"* ]]
+then
+	clear
+	echo "Installing Nextcloud client..."
+	echo ""
+	sudo add-apt-repository -y ppa:atareao/telegram
+	sudo apt -y update
+	sudo apt -y install telegram
 fi
 
 # Install Dropbox Action
