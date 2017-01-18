@@ -82,7 +82,7 @@ then
 		sudo dpkg -i /tmp/all.deb /tmp/headers_amd64.deb /tmp/image_amd64.deb
 	fi
 	sudo update-grub
-	sudo rm -f /tmp/linux*4.4.39*.deb
+	sudo rm -f /tmp/all.deb /tmp/headers*.deb /tmp/image*.deb
 fi
 
 # Enable PPAs
