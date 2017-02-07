@@ -63,7 +63,7 @@ then
 fi
 
 # Install WPS Office
-if [[ $GUI == *"Upgrade 4.4.X LTS Kernel"* ]]
+if [[ $GUI == *"Upgrade 4.9.X LTS Kernel"* ]]
 then
 	clear
 	echo "Upgrading LTS Kernel..."
