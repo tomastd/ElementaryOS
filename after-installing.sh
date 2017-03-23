@@ -360,7 +360,7 @@ then
 	echo ""
     sudo add-apt-repository -y ppa:libreoffice/ppa
 	sudo apt -y update
-	sudo apt -y install libreoffice libreoffice-style-breeze libreoffice-l10n-es myspell-es ispanish
+	sudo apt -y install libreoffice libreoffice-style-breeze libreoffice-l10n-es libreoffice-l10n-eu libreoffice-help-es libreoffice-help-eu myspell-es ispanish
 fi
 
 # Install TLP
