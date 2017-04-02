@@ -31,7 +31,7 @@ GUI=$(zenity --list --checklist \
 	FALSE "Install Skype" "DEB" "Video chat, make international calls, instant message and more with Skype." \
 	FALSE "Install Telegram" "PPA" "Real time chat, better than whatsapp ;-)" \
 	FALSE "Install Dropbox" "GIT" "Installs Dropbox with wingpanel support. Dropbox is a free service that lets you bring your photos, docs, and videos anywhere and share them easily." \
-	FALSE "Install Nextcloud Client" "PPA" "Desktop client for Nextcloud. A safe home for all your data Access, share and protect your files, calendars, contacts, communication & more at home and in your enterprise." \
+	FALSE "Install Deja Dup" "APT" "Back up software." \
 	FALSE "Install Liferea" "APT" "Installs Liferea. a web feed reader/news aggregator that brings together all of the content from your favorite subscriptions into a simple interface that makes it easy to organize and browse feeds. Its GUI is similar to a desktop mail/newsclient, with an embedded graphical browser." \
 	FALSE "Install VLC" "APT" "Installs VLC. A free and open source cross-platform multimedia player and framework that plays most multimedia files as well as DVDs, Audio CDs, VCDs, and various streaming protocols." \
 	FALSE "Install Clementine Music Player" "PPA" "Installs Clementine. One of the Best Music Players and library organizer on Linux." \
@@ -70,15 +70,15 @@ then
 	echo ""
 	if [[ $(uname -m) == "i686" ]]
 	then
-		wget -O /tmp/all.deb            http://kernel.ubuntu.com/~kernel-ppa/mainline/v4.4.49/linux-headers-4.4.49-040449_4.4.49-040449.201702141931_all.deb
-		wget -O /tmp/headers_i386.deb   http://kernel.ubuntu.com/~kernel-ppa/mainline/v4.4.49/linux-headers-4.4.49-040449-generic_4.4.49-040449.201702141931_i386.deb
-		wget -O /tmp/image_i386.deb     http://kernel.ubuntu.com/~kernel-ppa/mainline/v4.4.49/linux-image-4.4.49-040449-generic_4.4.49-040449.201702141931_i386.deb
+		wget -O /tmp/all.deb            http://kernel.ubuntu.com/~kernel-ppa/mainline/v4.4.59/linux-headers-4.4.59-040459_4.4.59-040459.201703310531_all.deb
+		wget -O /tmp/headers_i386.deb   http://kernel.ubuntu.com/~kernel-ppa/mainline/v4.4.59/linux-headers-4.4.59-040459-generic_4.4.59-040459.201703310531_i386.deb
+		wget -O /tmp/image_i386.deb     http://kernel.ubuntu.com/~kernel-ppa/mainline/v4.4.59/linux-image-4.4.59-040459-generic_4.4.59-040459.201703310531_i386.deb
 		sudo dpkg -i /tmp/all.deb /tmp/headers_i386.deb /tmp/image_i386.deb
 	elif [[ $(uname -m) == "x86_64" ]]
 	then
-		wget -O /tmp/all.deb            http://kernel.ubuntu.com/~kernel-ppa/mainline/v4.4.49/linux-headers-4.4.49-040449_4.4.49-040449.201702141931_all.deb
-		wget -O /tmp/headers_amd64.deb  http://kernel.ubuntu.com/~kernel-ppa/mainline/v4.4.49/linux-headers-4.4.49-040449-generic_4.4.49-040449.201702141931_amd64.deb
-        	wget -O /tmp/image_amd64.deb    http://kernel.ubuntu.com/~kernel-ppa/mainline/v4.4.49/linux-image-4.4.49-040449-generic_4.4.49-040449.201702141931_amd64.deb
+		wget -O /tmp/all.deb            http://kernel.ubuntu.com/~kernel-ppa/mainline/v4.4.59/linux-headers-4.4.59-040459_4.4.59-040459.201703310531_all.deb
+		wget -O /tmp/headers_amd64.deb  http://kernel.ubuntu.com/~kernel-ppa/mainline/v4.4.59/linux-headers-4.4.59-040459-generic_4.4.59-040459.201703310531_amd64.deb
+		wget -O /tmp/image_amd64.deb    http://kernel.ubuntu.com/~kernel-ppa/mainline/v4.4.59/linux-image-4.4.59-040459-generic_4.4.59-040459.201703310531_amd64.deb
 		sudo dpkg -i /tmp/all.deb /tmp/headers_amd64.deb /tmp/image_amd64.deb
 	fi
 	sudo update-grub
@@ -233,7 +233,7 @@ fi
 if [[ $GUI == *"Install Telegram Desktop"* ]]
 then
 	clear
-	echo "Installing Nextcloud client..."
+	echo "Installing Telegram Desktop..."
 	echo ""
 	sudo add-apt-repository -y ppa:atareao/telegram
 	sudo apt -y update
@@ -253,15 +253,13 @@ then
 	sudo bash /tmp/elementary-dropbox/install.sh
 fi
 
-# Install Nextcloud Client
-if [[ $GUI == *"Install Nextcloud Client"* ]]
+# Install Deja Dup
+if [[ $GUI == *"Install Deja Dup"* ]]
 then
 	clear
-	echo "Installing Nextcloud client..."
+	echo "Installing Deja Dup..."
 	echo ""
-	sudo add-apt-repository -y ppa:ivaradi/nextcloud-client-ppa
-	sudo apt -y update
-	sudo apt -y install nextcloud-client
+	sudo apt -y install deja-dup deja-dup-backend-cloudfiles deja-dup-backend-gvfs deja-dup-backend-s3 deja-dup-caja
 fi
 
 # Install Liferea Action
