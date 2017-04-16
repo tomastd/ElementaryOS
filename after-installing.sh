@@ -31,6 +31,7 @@ GUI=$(zenity --list --checklist \
 	FALSE "Install Skype" "DEB" "Video chat, make international calls, instant message and more with Skype." \
 	FALSE "Install Telegram" "PPA" "Real time chat, better than whatsapp ;-)" \
 	FALSE "Install Dropbox" "GIT" "Installs Dropbox with wingpanel support. Dropbox is a free service that lets you bring your photos, docs, and videos anywhere and share them easily." \
+	FALSE "Install Nextcloud-Client" "PPA" "Share with only who you choose, and no-one else." \
 	FALSE "Install Deja Dup" "APT" "Back up software." \
 	FALSE "Install Liferea" "APT" "Installs Liferea. a web feed reader/news aggregator that brings together all of the content from your favorite subscriptions into a simple interface that makes it easy to organize and browse feeds. Its GUI is similar to a desktop mail/newsclient, with an embedded graphical browser." \
 	FALSE "Install VLC" "APT" "Installs VLC. A free and open source cross-platform multimedia player and framework that plays most multimedia files as well as DVDs, Audio CDs, VCDs, and various streaming protocols." \
@@ -251,6 +252,17 @@ then
 	sudo apt -y install python-gpgme	
 	git clone https://github.com/zant95/elementary-dropbox /tmp/elementary-dropbox
 	sudo bash /tmp/elementary-dropbox/install.sh
+fi
+
+# Install Nextcloud-Client
+if [[ $GUI == *"Install Nextcloud-Client"* ]]
+then
+	clear
+	sudo add-apt-repository -y ppa:nextcloud-devs/client
+	sudo apt -y update
+	echo "Installing Nextcloud-Client..."
+	echo ""
+	sudo apt -y install nextcloud-client
 fi
 
 # Install Deja Dup
