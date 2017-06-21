@@ -14,7 +14,7 @@ GUI=$(zenity --list --checklist \
 	--column=Type \
 	--column=Description \
 	TRUE "Update System" "APT" "Updates the package lists, the system packages and Applications."  \
-    FALSE "Upgrade 4.4.X LTS Kernel" "DEB" "Upgrade to the last Long Term Suport 4.4.X LTS Kernel." \
+    FALSE "Upgrade to 4.8.X LTS Kernel" "DEB" "Upgrade to the last Long Term Suport 4.4.X LTS Kernel." \
 	FALSE "Enable PPAs" "APT" "Another extra layer of security and another level of annoyance. You cannot add PPA by default in Loki." \
 	FALSE "Install Y-PPA-Manager" "PPA" "Tool that lets you easily add, remove or purge PPAs as well as search for packages in Launchpad PPAs." \
 	FALSE "Install Elementary Tweaks" "PPA" "Installing themes in elementary OS is a much easier task thanks to elementary Tweaks tool." \
@@ -64,26 +64,12 @@ then
 fi
 
 # Install WPS Office
-if [[ $GUI == *"Upgrade 4.4.X LTS Kernel"* ]]
+if [[ $GUI == *"Upgrade to 4.8.X LTS Kernel"* ]]
 then
 	clear
 	echo "Upgrading LTS Kernel..."
 	echo ""
-	if [[ $(uname -m) == "i686" ]]
-	then
-		wget -O /tmp/all.deb            http://kernel.ubuntu.com/~kernel-ppa/mainline/v4.4.59/linux-headers-4.4.59-040459_4.4.59-040459.201703310531_all.deb
-		wget -O /tmp/headers_i386.deb   http://kernel.ubuntu.com/~kernel-ppa/mainline/v4.4.59/linux-headers-4.4.59-040459-generic_4.4.59-040459.201703310531_i386.deb
-		wget -O /tmp/image_i386.deb     http://kernel.ubuntu.com/~kernel-ppa/mainline/v4.4.59/linux-image-4.4.59-040459-generic_4.4.59-040459.201703310531_i386.deb
-		sudo dpkg -i /tmp/all.deb /tmp/headers_i386.deb /tmp/image_i386.deb
-	elif [[ $(uname -m) == "x86_64" ]]
-	then
-		wget -O /tmp/all.deb            http://kernel.ubuntu.com/~kernel-ppa/mainline/v4.4.59/linux-headers-4.4.59-040459_4.4.59-040459.201703310531_all.deb
-		wget -O /tmp/headers_amd64.deb  http://kernel.ubuntu.com/~kernel-ppa/mainline/v4.4.59/linux-headers-4.4.59-040459-generic_4.4.59-040459.201703310531_amd64.deb
-		wget -O /tmp/image_amd64.deb    http://kernel.ubuntu.com/~kernel-ppa/mainline/v4.4.59/linux-image-4.4.59-040459-generic_4.4.59-040459.201703310531_amd64.deb
-		sudo dpkg -i /tmp/all.deb /tmp/headers_amd64.deb /tmp/image_amd64.deb
-	fi
-	sudo update-grub
-	sudo rm -f /tmp/all.deb /tmp/headers*.deb /tmp/image*.deb
+	sudo apt-get install --install-recommends xserver-xorg-hwe-16.04
 fi
 
 # Enable PPAs
