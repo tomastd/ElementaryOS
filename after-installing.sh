@@ -32,22 +32,23 @@ GUI=$(zenity --list --checklist \
 	FALSE "Install Telegram" "PPA" "Real time chat, better than whatsapp ;-)" \
 	FALSE "Install Dropbox" "GIT" "Installs Dropbox with wingpanel support. Dropbox is a free service that lets you bring your photos, docs, and videos anywhere and share them easily." \
 	FALSE "Install Nextcloud-Client" "PPA" "Share with only who you choose, and no-one else." \
-	FALSE "Install Deja Dup" "APT" "Back up software." \
+	TRUE "Install Deja Dup" "APT" "Back up software." \
 	FALSE "Install Liferea" "APT" "Installs Liferea. a web feed reader/news aggregator that brings together all of the content from your favorite subscriptions into a simple interface that makes it easy to organize and browse feeds. Its GUI is similar to a desktop mail/newsclient, with an embedded graphical browser." \
-	FALSE "Install VLC" "APT" "Installs VLC. A free and open source cross-platform multimedia player and framework that plays most multimedia files as well as DVDs, Audio CDs, VCDs, and various streaming protocols." \
+	TRUE "Install VLC" "APT" "Installs VLC. A free and open source cross-platform multimedia player and framework that plays most multimedia files as well as DVDs, Audio CDs, VCDs, and various streaming protocols." \
 	FALSE "Install Clementine Music Player" "PPA" "Installs Clementine. One of the Best Music Players and library organizer on Linux." \
 	FALSE "Install Spotify Client" "PPA" "Installs Spotify Client. Music streaming service provider." \
 	FALSE "Install Gimp" "APT" "GIMP is an advanced picture editor. You can use it to edit, enhance, and retouch photos and scans, create drawings, and make your own images." \
 	FALSE "Install Deluge" "APT" "Deluge is a lightweight, Free Software, cross-platform BitTorrent client." \
-	FALSE "Install Transmission" "APT" "Installs the Transmission BitTorrent client." \
-	FALSE "Install Atom" "PPA" "Installs Atom. A hackable text editor for the 21st Century." \
+	TRUE "Install Transmission" "APT" "Installs the Transmission BitTorrent client." \
+	TRUE "Install Atom" "PPA" "Installs Atom. A hackable text editor for the 21st Century." \
 	FALSE "Install Sublime Text 3" "PPA" "Installs Sublime Text 3. A sophisticated text editor for code, markup and prose." \
-	FALSE "Install LibreOffice" "PPA" "Installs LibreOffice. A powerful office suite." \
+	TRUE "Install LibreOffice" "PPA" "Installs LibreOffice. A powerful office suite." \
 	FALSE "Install TLP" "APT" "Install TLP to save battery and prevent overheating." \
-	FALSE "Install Redshift" "APT" "Use night shift to save your eyes." \
+	TRUE "Install Redshift" "APT" "Use night shift to save your eyes." \
 	FALSE "Install Disk Utility" "APT" "Gnome Disk Utility is a tool to manage disk drives and media." \
 	FALSE "Install Ubuntu Restricted Extras" "APT" "Installs commonly used applications with restricted copyright (mp3, avi, mpeg, TrueType, Java, Flash, Codecs)." \
 	FALSE "Install Support for Encrypted DVD's" "APT" "Installs support for playing encrypted DVD's." \
+	TRUE "Install Support for exfat filesystem" "APT" "Installs support for extended fat filesystem." \
 	FALSE "Install Extra Multimedia Codecs" "APT" "Installs extra multimedia codecs." \
 	TRUE "Fix Broken Packages" "APT" "Fixes the broken packages." \
 	TRUE "Clean-Up Junk" "APT" "Removes unnecessary packages and the local repository of retrieved package files." \
@@ -403,6 +404,15 @@ then
 	echo ""
 	sudo apt -y install libdvdread4 libdvdcss2
 	sudo dpkg-reconfigure libdvd-pkg
+fi
+
+# Install Support for exfat filesystem Action
+if [[ $GUI == *"Install Support for exfat filesystem"* ]]
+then
+	clear
+	echo "Installing Support for exfat filesystem..."
+	echo ""
+	sudo apt -y install exfat-fuse exfat-utils
 fi
 
 # Install Extra Multimedia Codecs Action
