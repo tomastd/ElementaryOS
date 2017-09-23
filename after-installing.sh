@@ -48,7 +48,7 @@ GUI=$(zenity --list --checklist \
 	FALSE "Install Disk Utility" "APT" "Gnome Disk Utility is a tool to manage disk drives and media." \
 	FALSE "Install Ubuntu Restricted Extras" "APT" "Installs commonly used applications with restricted copyright (mp3, avi, mpeg, TrueType, Java, Flash, Codecs)." \
 	FALSE "Install Support for Encrypted DVD's" "APT" "Installs support for playing encrypted DVD's." \
-	TRUE "Install Support for exfat filesystem" "APT" "Installs support for extended fat filesystem." \
+	TRUE "Install Support for exfat and afs filesystem" "APT" "Installs support for extended fat filesystem and Apple File Service." \
 	FALSE "Install Extra Multimedia Codecs" "APT" "Installs extra multimedia codecs." \
 	TRUE "Fix Broken Packages" "APT" "Fixes the broken packages." \
 	TRUE "Clean-Up Junk" "APT" "Removes unnecessary packages and the local repository of retrieved package files." \
@@ -412,7 +412,7 @@ then
 	clear
 	echo "Installing Support for exfat filesystem..."
 	echo ""
-	sudo apt -y install exfat-fuse exfat-utils
+	sudo apt -y install exfat-fuse exfat-utils cifs-utils
 fi
 
 # Install Extra Multimedia Codecs Action
