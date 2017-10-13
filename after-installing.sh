@@ -14,13 +14,14 @@ GUI=$(zenity --list --checklist \
 	--column=Type \
 	--column=Description \
 	TRUE "Update System" "APT" "Updates the package lists, the system packages and Applications."  \
-    FALSE "Upgrade to 4.8.X LTS Kernel" "DEB" "Upgrade to the last Long Term Suport 4.4.X LTS Kernel." \
+    FALSE "Upgrade Kernel" "APT" "Upgrade to the last recomended Kernel." \
 	FALSE "Enable PPAs" "APT" "Another extra layer of security and another level of annoyance. You cannot add PPA by default in Loki." \
 	FALSE "Install Y-PPA-Manager" "PPA" "Tool that lets you easily add, remove or purge PPAs as well as search for packages in Launchpad PPAs." \
 	FALSE "Install Elementary Tweaks" "PPA" "Installing themes in elementary OS is a much easier task thanks to elementary Tweaks tool." \
     FALSE "Install Elementary Full Icon Theme" "GIT" "Installs Elementary Full Icon Theme. A mega pack of icons for elementary OS." \
     FALSE "Add Oibaf Repository" "PPA" "This repository contain updated and optimized open graphics drivers." \
 	FALSE "Install Gufw Firewall" "APT" "Gufw is an easy and intuitive way to manage your linux firewall." \
+	FALSE "Install Gnome Language Selector" "APT" "More complete language and input method selector" \
 	FALSE "Install CatFish" "APT" "handy file searching tool for Linux and UNIX." \
 	FALSE "Install Support for Archive Formats" "APT" "Installs support for archive formats." \
 	FALSE "Install GDebi" "APT" "Installs GDebi. A simple tool to install deb files." \
@@ -64,8 +65,8 @@ then
 	sudo apt -y full-upgrade
 fi
 
-# Install WPS Office
-if [[ $GUI == *"Upgrade to 4.8.X LTS Kernel"* ]]
+# Upgrade Kernel
+if [[ $GUI == *"Upgrade Kernel"* ]]
 then
 	clear
 	echo "Upgrading LTS Kernel..."
@@ -134,6 +135,15 @@ then
 	echo "Installing Gufw Firewall..."
 	echo ""
 	sudo apt -y install gufw
+fi
+
+# Install Gnome Language Selector
+if [[ $GUI == *"Gnome Language Selector"* ]]
+then
+	clear
+	echo "Installing Gnome Language Selector..."
+	echo ""
+	sudo apt -y install language-selector-gnome
 fi
 
 # Install CatFish
