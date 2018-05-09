@@ -221,7 +221,7 @@ then
 		wget -O /tmp/skype.deb https://download.skype.com/linux/skype-ubuntu-precise_4.3.0.37-1_i386.deb
 	elif [[ $(uname -m) == "x86_64" ]]
 	then
-		wget -O /tmp/skype.deb https://go.skype.com/skypeforlinux-64-alpha.deb
+		wget -O /tmp/skype.deb https://repo.skype.com/latest/skypeforlinux-64.deb
 	fi
 	sudo dpkg -i /tmp/skype.deb
 	sudo apt -f install
