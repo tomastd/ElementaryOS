@@ -36,13 +36,11 @@ GUI=$(zenity --list --checklist \
 	TRUE "Install Deja Dup" "APT" "Back up software." \
 	FALSE "Install Liferea" "APT" "Installs Liferea. a web feed reader/news aggregator that brings together all of the content from your favorite subscriptions into a simple interface that makes it easy to organize and browse feeds. Its GUI is similar to a desktop mail/newsclient, with an embedded graphical browser." \
 	TRUE "Install VLC" "APT" "Installs VLC. A free and open source cross-platform multimedia player and framework that plays most multimedia files as well as DVDs, Audio CDs, VCDs, and various streaming protocols." \
-	FALSE "Install Clementine Music Player" "PPA" "Installs Clementine. One of the Best Music Players and library organizer on Linux." \
 	FALSE "Install Spotify Client" "PPA" "Installs Spotify Client. Music streaming service provider." \
 	FALSE "Install Gimp" "APT" "GIMP is an advanced picture editor. You can use it to edit, enhance, and retouch photos and scans, create drawings, and make your own images." \
 	FALSE "Install Deluge" "APT" "Deluge is a lightweight, Free Software, cross-platform BitTorrent client." \
 	TRUE "Install Transmission" "APT" "Installs the Transmission BitTorrent client." \
 	TRUE "Install Atom" "PPA" "Installs Atom. A hackable text editor for the 21st Century." \
-	FALSE "Install Sublime Text 3" "PPA" "Installs Sublime Text 3. A sophisticated text editor for code, markup and prose." \
 	TRUE "Install LibreOffice" "PPA" "Installs LibreOffice. A powerful office suite." \
 	FALSE "Install TLP" "APT" "Install TLP to save battery and prevent overheating." \
 	TRUE "Install Redshift" "APT" "Use night shift to save your eyes." \
@@ -289,17 +287,6 @@ then
 	sudo apt -y install vlc
 fi
 
-# Install Clementine Action
-if [[ $GUI == *"Install Clementine Music Player"* ]]
-then
-	clear
-	sudo add-apt-repository -y ppa:me-davidsansome/clementine
-	sudo apt -y update
-	echo "Installing Clementine Music Player..."
-	echo ""
-	sudo apt -y install clementine
-fi
-
 # Install Spotify Client
 if [[ $GUI == *"Install Spotify Client"* ]]
 then
@@ -346,17 +333,6 @@ then
 	sudo add-apt-repository -y ppa:webupd8team/atom
 	sudo apt -y update
 	sudo apt -y install atom
-fi
-
-# Install Sublime Text 3 Action
-if [[ $GUI == *"Install Sublime Text 3"* ]]
-then
-	clear
-	echo "Installing Sublime Text 3..."
-	echo ""
-	sudo add-apt-repository -y ppa:webupd8team/sublime-text-3
-	sudo apt -y update
-	sudo apt -y install sublime-text-installer
 fi
 
 # Install LibreOffice Action
